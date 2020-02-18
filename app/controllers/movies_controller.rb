@@ -19,7 +19,7 @@ class MoviesController < ApplicationController
     #save sessions
     session[:sort] = @sort
     session[:ratings] = @rating_param
-    @movies = Movie.where(rating: session[:ratings]).order(session[:sort])
+    @movies = Movie.where(rating: @rating_param).order(@sort)
   end
 
   def new
