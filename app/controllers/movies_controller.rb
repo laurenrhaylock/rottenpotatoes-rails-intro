@@ -19,7 +19,7 @@ class MoviesController < ApplicationController
    #save sessions
    session[:sort] = @sort
    session[:ratings] = @rating_param
-   @movies = Movie.where(rating: session[:ratings]).order(@sort)
+   @movies = Movie.where(rating: session[:ratings]).order(session[:sort])
    
    #if (params[:sort] != session[:sort]) or (params[:ratings] != session[:ratings])
    # flash.keep
