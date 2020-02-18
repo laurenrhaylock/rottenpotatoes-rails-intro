@@ -14,7 +14,8 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.ratings
     @sort = params[:sort] || session[:sort]
     session[:ratings] = session[:ratings] || @all_ratings
-    params[:ratings].nil? ? @rating_param = session[:ratings] : @rating_param = params[:ratings].keys
+    #params[:ratings].nil? ? @rating_param = session[:ratings] : @rating_param = params[:ratings].keys
+    @rating_param = params[:ratings] || session[:ratings]
     #save sessions
     session[:sort] = @sort
     session[:ratings] = @rating_param
